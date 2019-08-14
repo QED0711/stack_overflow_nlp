@@ -20,31 +20,31 @@ class ConstructModel:
         self.X = X
         self.y = y
         
-        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(
+        self._X_train, self._X_test, self._y_train, self._y_test = train_test_split(
             self.X, self.y, train_size=0.8, random_state=42)
 
-        self.fit(on=fit_on)
+        self._fit(on=fit_on)
 
-    def fit(self, on="train"):
+    def _fit(self, on="train"):
         if on == "train":
-            self.pipe.fit(self.X_train, self.y_train)
+            self.pipe.fit(self._X_train, self._y_train)
         elif on == "test":
-            self.pipe.fit(self.X_test, self.y_test)
+            self.pipe.fit(self._X_test, self._y_test)
         elif on == "all":
             self.pipe.fit(self.X, self.y)
 
     def get_score(self):
-        train_score = self.pipe.score(self.X_train, self.y_train)
-        test_score = self.pipe.score(self.X_test, self.y_test)
+        train_score = self.pipe.score(self._X_train, self._y_train)
+        test_score = self.pipe.score(self._X_test, self._y_test)
         print("Train Score:\t", train_score)
         print("Test Score:\t", test_score)
 
     def get_confusion_matrix(self, on="test"):
         cm = ConfusionMatrix(self.pipe)
         if on =="test": 
-            cm.score(self.X_test, self.y_test)
+            cm.score(self._X_test, self._y_test)
         elif on == "train":
-            cm.score(self.X_train, self.y_train)
+            cm.score(self._X_train, self._y_train)
         elif on == "all":
             cm.score(self.X, self.y)
         
@@ -55,13 +55,20 @@ class ConstructModel:
         
         visualizer = ROCAUC(self.pipe)
         if on =="test": 
-            visualizer.score(self.X_test, self.y_test)
+            visualizer.score(self._X_test, self._y_test)
         elif on == "train":
-            visualizer.score(self.X_train, self.y_train)
+            visualizer.score(self._X_train, self._y_train)
         elif on == "all": 
             visualizer.score(self.X, self.y)
         
         visualizer.poof()    
+        
+    def get_prediction(self, processed_text, format="classification"):
+        if format == "classification":
+            return self.pipe.predict([processed_text])
+        elif format == "proba":
+            classes = self.pipe.classes_
+            return list(zip(classes, list(self.pipe.predict_proba([processed_text])[0])))
     
     
 if __name__ == "__main__":
