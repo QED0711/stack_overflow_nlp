@@ -8,6 +8,8 @@ import seaborn as sns
 from yellowbrick.classifier import ConfusionMatrix
 from yellowbrick.classifier import ROCAUC
 
+from text_pre_processor import *
+
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -24,6 +26,8 @@ class ConstructModel:
             self.X, self.y, train_size=0.8, random_state=42)
 
         self._fit(on=fit_on)
+
+        self.tpp = TextPreProcessor()
 
     def _fit(self, on="train"):
         if on == "train":
@@ -63,7 +67,8 @@ class ConstructModel:
         
         visualizer.poof()    
         
-    def get_prediction(self, processed_text, format="classification"):
+    def get_prediction(self, text, format="classification"):
+        processed_text = self.tpp.process_text(text)
         if format == "classification":
             return self.pipe.predict([processed_text])
         elif format == "proba":
