@@ -10,7 +10,11 @@ warnings.filterwarnings('ignore')
 
 
 class TextPreProcessor:
-    
+    """
+    A modual for automating text preproccessing using the nltk package.
+    Note: The TextPreProcessor will likely never need to be called directly. 
+    It is used for pre-processing in the ConstructModel class when making text predictions. 
+    """
     def __init__(self, classifications=["python", "javascript", "java", "c++", "c#"]):
         
         self.classifications = classifications
@@ -19,9 +23,12 @@ class TextPreProcessor:
     
     def text_cleaner(self, post):
         '''
-        input:
+        input
+        -----
         post: a string with symbols and punctuations 
-        returns:
+        
+        returns
+        -------
         cleaned post with all letters to lower, all numbers, white space, and symbols removed
         '''
         pattern = r'[^A-Za-z]+'  # anything that is not letter or space
@@ -42,9 +49,12 @@ class TextPreProcessor:
         
     def token_lemma(self, post):
         '''
-        input:
+        Input
+        -----
         post: cleaned post from function text_preprocess
-        returns:
+        
+        Returns
+        -------
         tokenized post with lemmatization with position tags
         stopwords and tags are removed 
         '''
@@ -67,8 +77,18 @@ class TextPreProcessor:
         return lem_result
     
     
-    def process_text(self, post):
-        processed_text = self.text_cleaner(post)
+    def process_text(self, text):
+        """
+        Input
+        -----
+        text : String (required)
+
+        Returns
+        -------
+        string: Processes the input string through nltk, including lemmatization and stop word removal (english). 
+        Returns the processed text as a string.
+        """
+        processed_text = self.text_cleaner(text)
         token_lemma = self.token_lemma(processed_text)
         return " ".join(token_lemma)
     
