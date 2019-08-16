@@ -15,11 +15,17 @@ Using raw text data retrieved from _Stack Overflow_ posts, we predict the main p
 
 We begin by performing natural language processing (NLP) using the NLTK library to extract feature data from the raw posts. We then train and measure the accuracy of a number of different machine learning models. 
 
-As a secondary analysis, we attempted to perform topic clustering on the processed dataset. The results for this clustering analysis were inconclusive. We determined that, while we were able to get relatively good results in predicting language, topics within or among languages are numerous and difficult to distinguish.
+Our top three models were logistic regression, multinomial NB, and random forest classifier. All produced accuracy scores around 80%. Using all the models together in majority vote, we were able to get about 83% accuracy. 
+
+As a secondary analysis, we attempted to perform topic clustering on the processed dataset. The results for this clustering analysis were inconclusive. 
+
+#### Conclusion
+
+Our final conclusion is that, while we are able to get relatively good results in predicting language, topics within or among languages are numerous, share many common words, and are difficult to distinguish.
 
 > If you would like to see the final model (logistic regression, 81% accuracy) in action, see our [companion web app](https://tag-predictor.netlify.com/) for this project.
 
-> _For slide deck summary, see [here](#)_
+> _For a visual slide deck summary, see [here](https://docs.google.com/presentation/d/17F4NEf2O8SrrgcFmIh9pVS8Rrt_OFZquxqfzttDewkY/edit?usp=sharing)_
 ___
 
 ## Dataset
@@ -38,25 +44,32 @@ ___
 Our final, high-level analysis can be found in:
 
 
-> [/notebooks/Stack_Overflow_NLP_Summary_Notebook.ipynb](#)
+> [/notebooks/Stack_Overflow_NLP_Summary_Notebook.ipynb](https://github.com/QED0711/stack_overflow_nlp/blob/master/notebooks/Stack_Overflow_NLP_Summary_Notebook.ipynb)
 
 ___
 ### Cleaned Dataset:
 
 The dataset we used in our final analysis can be found in:
-> [/data/final/text_target.pkl](#)
+> [/data/final/text_target.pkl](https://github.com/QED0711/stack_overflow_nlp/blob/master/data/final/text_target.pkl)
 ___
-### Primary Classes
+### Primary Classes and Functions
 
-We wrote custom classes to handle text preprocessing/NLP and the formation and evaluation of our model pipelines. The code for those classes can be found in the respective folders listed below:
+We wrote custom classes and helper functions to handle text preprocessing/NLP and the formation and evaluation of our model pipelines. The code for those classes can be found in the respective folders listed below:
 
-- > [/utils/text_pre_processor.py](#)
-- > [/utils/construct_model.py](#)
+- > [/utils/text_pre_processor.py](https://github.com/QED0711/stack_overflow_nlp/blob/master/utils/text_pre_processor.py)
+- > [/utils/construct_model.py](https://github.com/QED0711/stack_overflow_nlp/blob/master/utils/construct_model.py)
+- > [/utils/Helper_Function_MachineLearning_Clustering.py](https://github.com/QED0711/stack_overflow_nlp/blob/master/utils/Helper_Function_MachineLearning_Clustering.py)
 
 A notebook demonstrating the use of each class can be found in:
 
-> [/notebooks/class_demonstration.ipynb](#)
+> [/notebooks/class_demonstration.ipynb](https://github.com/QED0711/stack_overflow_nlp/blob/master/notebooks/class_demonstration.ipynb)
 
+___
+
+### Final Report (PDF):
+
+PDF version of final report can be found in:
+> [/data/reports/Stack_Overflow_Tag_Predictor.pdf](https://github.com/QED0711/stack_overflow_nlp/blob/master/reports/Stack_Overflow_Tag_Predictor.pdf)
 ___
 
 ## Acknowledgements 
@@ -66,5 +79,5 @@ In doing research for this project, we found the following articles very helpful
 > [Topic Modeling and Latent Dirichlet Allocation (LDA) in Python](https://towardsdatascience.com/topic-modeling-and-latent-dirichlet-allocation-in-python-9bf156893c24)  
 > A basic exploration and tutorial for LDA in python
 
-> [Gensim Tutorial – A Complete Beginners Guide](https://www.machinelearningplus.com/nlp/gensim-tutorial/)
+> [Gensim Tutorial – A Complete Beginners Guide](https://www.machinelearningplus.com/nlp/gensim-tutorial/)  
 > A guide for text preprocessing/analysis using the Gensim Library
