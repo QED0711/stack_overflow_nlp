@@ -30,7 +30,7 @@ ___
 
 ## Dataset
 
-All data was retrieved directly from Stack Overflow using _Google Query_.
+All data was retrieved directly from Stack Overflow using _Google BigQuery_.
 
 We limited our dataset to a little over 32 thousand unique posts with five of the most popular programming language categories:  
 
