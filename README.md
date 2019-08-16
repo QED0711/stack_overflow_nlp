@@ -66,6 +66,12 @@ A notebook demonstrating the use of each class can be found in:
 
 ___
 
+### Final Report (PDF):
+
+PDF version of final report can be found in:
+> [/data/reports/Stack_Overflow_Tag_Predictor.pdf](https://github.com/QED0711/stack_overflow_nlp/blob/master/reports/Stack_Overflow_Tag_Predictor.pdf)
+___
+
 ## Acknowledgements 
 
 In doing research for this project, we found the following articles very helpful:
