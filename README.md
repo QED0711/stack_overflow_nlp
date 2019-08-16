@@ -25,7 +25,7 @@ Our final conclusion is that, while we are able to get relatively good results i
 
 > If you would like to see the final model (logistic regression, 81% accuracy) in action, see our [companion web app](https://tag-predictor.netlify.com/) for this project.
 
-> _For a visual slide deck summary, see [here](#)_
+> _For a visual slide deck summary, see [here](https://docs.google.com/presentation/d/17F4NEf2O8SrrgcFmIh9pVS8Rrt_OFZquxqfzttDewkY/edit?usp=sharing)_
 ___
 
 ## Dataset
@@ -44,24 +44,25 @@ ___
 Our final, high-level analysis can be found in:
 
 
-> [/notebooks/Stack_Overflow_NLP_Summary_Notebook.ipynb](#)
+> [/notebooks/Stack_Overflow_NLP_Summary_Notebook.ipynb](https://github.com/QED0711/stack_overflow_nlp/blob/master/notebooks/Stack_Overflow_NLP_Summary_Notebook.ipynb)
 
 ___
 ### Cleaned Dataset:
 
 The dataset we used in our final analysis can be found in:
-> [/data/final/text_target.pkl](#)
+> [/data/final/text_target.pkl](https://github.com/QED0711/stack_overflow_nlp/blob/master/data/final/text_target.pkl)
 ___
-### Primary Classes
+### Primary Classes and Functions
 
-We wrote custom classes to handle text preprocessing/NLP and the formation and evaluation of our model pipelines. The code for those classes can be found in the respective folders listed below:
+We wrote custom classes and helper functions to handle text preprocessing/NLP and the formation and evaluation of our model pipelines. The code for those classes can be found in the respective folders listed below:
 
-- > [/utils/text_pre_processor.py](#)
-- > [/utils/construct_model.py](#)
+- > [/utils/text_pre_processor.py](https://github.com/QED0711/stack_overflow_nlp/blob/master/utils/text_pre_processor.py)
+- > [/utils/construct_model.py](https://github.com/QED0711/stack_overflow_nlp/blob/master/utils/construct_model.py)
+- > [/utils/Helper_Function_MachineLearning_Clustering.py](https://github.com/QED0711/stack_overflow_nlp/blob/master/utils/Helper_Function_MachineLearning_Clustering.py)
 
 A notebook demonstrating the use of each class can be found in:
 
-> [/notebooks/class_demonstration.ipynb](#)
+> [/notebooks/class_demonstration.ipynb](https://github.com/QED0711/stack_overflow_nlp/blob/master/notebooks/class_demonstration.ipynb)
 
 ___
 
